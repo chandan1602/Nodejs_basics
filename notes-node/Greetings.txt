@@ -1,1 +1,0 @@
-Hello world!Hello world!Hello world!HellolenovoHello ${user.username}!Hello ${user.username}!Hello ${user.username}!Hello ${user.username}!Hello ${user.username}! You are ${notes.age}.Hello ${user.username}! You are 19
