@@ -1,15 +1,3 @@
-console.log('Starting notes.js');
-
-// module.exports.addNote = () => {
-//   console.log('addNote');
-//   return 'New Note';
-// };
-
-// module.exports.add = (a, b) => {
-//   var c = a + b;
-//   return c;
-// }
-
 const fs = require('fs');
 
 var fetchNotes = () => {
@@ -38,10 +26,8 @@ var duplicateNotes = notes.filter((note) => note.title === title);
 if (duplicateNotes.length === 0) {
   notes.push(note);
   saveNotes(notes);
-  // console.log('File saved Successfully');
   return note;
 }else {
-  // console.log('Error: Same name of title spotted');
 }
 };
 // var duplicateNotes = motes.filter((note) => {
@@ -51,11 +37,13 @@ if (duplicateNotes.length === 0) {
 
 
 var getAll = () => {
-  console.log('Getting all notes');
+  return fetchNotes();
 };
 
 var getNote = (title) => {
-  console.log('Reading note : ', title);
+  var notes = fetchNotes();
+  var filteredNotes = notes.filter((note) => note.title === title);
+  return filteredNotes[0];
 };
 
 var removeNote = (title) => {
@@ -66,9 +54,17 @@ var removeNote = (title) => {
   return notes.length !== filteredNotes.length;
 };
 
+var logNote = (note) => {
+  debugger;
+  console.log('----');
+  console.log('Title : ', note.title);
+  console.log('Body : ', note.body);
+};
+
 module.exports = {
   addNote: addNote,
   getAll: getAll,
   getNote: getNote,
   removeNote: removeNote,
+  logNote
 };
