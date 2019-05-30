@@ -19,18 +19,18 @@ a: {
 // console.log(argv);
 
 geocode.geocodeAddress(argv.address, (errorMessage, results) => {
-  if (errorMessage) {
+  if(errorMessage) {
     console.log(errorMessage);
   } else {
-    console.log(results.address);
+    console.log(results);
     weather.getWeather(results.latitude, results.longitude, (errorMessage, weatherResults) => {
       if (errorMessage) {
         console.log(errorMessage);
       } else {
-        console.log(`It's currently ${weatherResults.temperature}. It feels like ${weatherResults.apparentTemperature}.`);
+        console.log(`Temp: ${weatherResults.temperature} and Apparant-Temp : ${weatherResults.apparentTemperature}`);
       }
     });
   }
 });
 
-// lat,lng,callback
+//lat,lng,callback

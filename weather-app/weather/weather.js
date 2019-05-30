@@ -1,6 +1,7 @@
 const request = require('request')
 
 var getWeather = (lat, lng, callback) => {
+  console.log(lat,lng,callback);
   request({
     url: `https://api.darksky.net/forecast/d8e7e39e5fce7924721696b2c538fe4e/${lat},${lng}`,
     json: true
@@ -13,8 +14,8 @@ var getWeather = (lat, lng, callback) => {
       callback(undefined, {
         temperature: body.currently.temperature,
         apparentTemperature: body.currently.apparentTemperature
-      })
+      });
     }
-  })
+  });
 }
-module.exports.getWeather = getWeather
+module.exports.getWeather = getWeather;

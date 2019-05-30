@@ -12,14 +12,10 @@ if(error) {
   callback('Unable to find full address!');
 } else if (body.status === 'OK') {
   callback(undefined, {
+    latitude: body.results[0].geometry.location.lat,
     address: body.results[0].formatted_address,
-    latitide: body.results[0].geometry.location.lat,
     longitude: body.results[0].geometry.location.lng
   })
-  // console.log(JSON.stringify(response, undefined, 2));
-  // console.log('Address', body.results[0].formatted_address)
-  // console.log('Latitude', body.results[0].geometry.location.lat )
-  // console.log('Longitude', body.results[0].geometry.location.lng )
 }
 });
 };
