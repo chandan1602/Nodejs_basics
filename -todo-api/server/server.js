@@ -21,10 +21,19 @@ app.post('/todos', (req, res) => {
   })
 });
 
+app.get('/todos', (req, res) => {
+  Todo.find().then(() => {
+    res.send({todos})
+  }, (e) => {
+    res.status(400).send(e);
+  })
+})
+
 app.listen(3000, () => {
   console.log('Started on Port 3000');
 });
 
+module.exports = {app};
 // var newTodo = new Todo({
 //   text: 'Cook Dinner',
 //   completed: true
